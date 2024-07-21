@@ -1,0 +1,36 @@
+.center-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto; /* Adjusted height to leave room at the bottom */
+    flex-direction: column; /* Align children in a column */
+    margin-top: 50px; /* Adjust as needed to position */
+}
+
+.custom_input {
+    max-width: 600px; /* Adjust width as needed */
+    flex: none; /* Prevent flex-grow from expanding the width */
+}
+
+.aqiContainer {
+    position: relative;
+    top: 200px;
+    left: 900px;
+
+}
+
+.main_aqi_index {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    line-height: 500px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    background: #fff;
+    box-shadow: 1px 1px 2px 2px  #888888;
+}
