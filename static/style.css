@@ -1,0 +1,103 @@
+.center-wrapper {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    margin-top: 3%;
+    margin-left: 22%
+}
+
+.custom_input {
+    max-width: 80%; /* Use a percentage for responsive width */
+    flex: none;
+}
+
+.aqiContainer {
+    position: relative;
+    margin-top: 1%; /* Increase the margin to push it lower */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    width: 100%;
+    align-items: flex-end;
+}
+
+.main_aqi_index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80vw; /* Use viewport width for responsiveness */
+    max-width: 300px; /* Max width for larger screens */
+    height: 80vw; /* Use viewport width for a responsive circular shape */
+    max-height: 300px; /* Max height for larger screens */
+    border-radius: 50%;
+    font-size: 1.5rem; /* Use rem for font size */
+    color: #000;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0.1em 0.1em 0.2em 0.2em #888888; /* Use em for shadow */
+    position: relative; /* Make it a positioned element */
+}
+
+.sentimentText {
+    position: absolute;
+    top: 50%; /* Position it in the center vertically */
+    left: 50%; /* Position it in the center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position relative to center */
+    font-size: 1rem; /* Use rem for font size */
+    text-align: center; /* Center the text inside the element */
+    font-size: 36px;
+}
+
+.aqi_sentiment_title {
+    position: absolute;
+    top: 30%; /* Move the text higher by decreasing the top percentage */
+    left: 50%; /* Position it in the center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position relative to center */
+    font-size: 1.2rem; /* Use rem for font size */
+    text-align: center; /* Center the text inside the element */
+}
+
+body.low {
+    background-image: linear-gradient(#8CFF70, #FFF); /* Green for good air quality */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body.moderate {
+    background-image: linear-gradient(#ffff00, #FFF); /* Green for good air quality */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body.high {
+    background-image: linear-gradient(#ff0000, #FFF); /* Green for good air quality */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body.very-high {
+    background-color: #800000; /* Dark red for hazardous air quality */
+}
+
+.page-title {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.city-name {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 24px;
+}
+
+.aqi-info img {
+    max-width: 60%;   /* Adjust this value to control the image size */
+    height: auto;     /* Maintain aspect ratio */
+    display: block;   /* Ensure the image is a block element */
+    margin: 0 auto;   /* Center the image horizontally */
+}

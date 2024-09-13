@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Quality Tracker</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <h1 class="page-title">Air Quality Tracker</h1>
+  <div class="center-wrapper">
+    <form method="POST" class="w-100">
+      <div class="input-group mb-3 custom_input">
+        <input type="text" class="form-control custom_input" name="search_bar" placeholder="Search..." aria-label="City name" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  {% if city %}
+    <div class="city-name">{{ city }}</div>
+  {% else %}
+    <div class="city-name">No city searched yet.</div>
+  {% endif %}
+
+  <div class="aqiContainer">
+    <div class="main_aqi_index">
+      <h4 class="aqi_sentiment_title">Main Air Quality Index: </h4>
+      {% if air_quality %}
+        <div class="sentimentText">{{ air_quality }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="aqi-info">
+    <img src="{{ url_for('static', filename='img/aqi-index.png') }}" alt="aqi information">
+  </div>
+
+
+  <script>
+
+    // Parse the air quality value from the template and convert it to an integer
+    const airQuality = parseInt('{{ air_quality }}');
+    console.log(airQuality);  // Log the air quality value for debugging
+
+    // Change background color based on air quality index (AQI)
+    if (airQuality === 1 || airQuality === 2) {
+        document.body.classList.add('low');  // Good air quality
+    } else if (airQuality === 3) {
+        document.body.classList.add('moderate');  // Moderate air quality
+    } else if (airQuality === 4) {
+        document.body.classList.add('high');  // Unhealthy for sensitive groups
+    } else if (airQuality === 5) {
+        document.body.classList.add('very-high');  // Unhealthy or hazardous air quality
+    }
+  </script>
+</body>
+</html>
