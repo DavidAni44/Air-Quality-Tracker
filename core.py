@@ -7,12 +7,11 @@ load_dotenv()
 
 API_KEY = os.getenv('API_KEY')
 
-def getLocation():
+def getLocation(city):
     location = []
     LOCATION_BASE_URL = "http://api.openweathermap.org/geo/1.0/direct?"
-    CITY = "Manchester"
 
-    url = LOCATION_BASE_URL + "q=" + CITY + "&limit="+ "1" + "&appid=" + API_KEY
+    url = LOCATION_BASE_URL + "q=" + city + "&limit="+ "1" + "&appid=" + API_KEY
 
     responses = requests.get(url).json()
 
@@ -25,9 +24,9 @@ def getLocation():
     return location
 
 
-def getAirQuality():
+def getAirQuality(city):
     AQ_BASE_URL = "http://api.openweathermap.org/data/2.5/air_pollution?"
-    aq_location = getLocation()
+    aq_location = getLocation(city)
     
     lat = aq_location[0]
     lon = aq_location[1]
@@ -39,10 +38,6 @@ def getAirQuality():
     aqi = responses["list"][0]["main"]["aqi"]
     
     return aqi
-
-
-print(getAirQuality())
-    
     
 
 
